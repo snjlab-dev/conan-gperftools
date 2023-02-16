@@ -7,7 +7,7 @@ class GperfToolsConan(NxConanFile):
     version = "2.10"
     options = {"shared":[True, False], "cpuprof":[True, False], "heapprof":[True, False], "heapchecker":[True, False]}
     default_options = "shared=False", "cpuprof=False", "heapprof=False", "heapchecker=False"
-    url = "https://github.com/hoxnox/conan-gperftools"
+    url = "https://github.com/snjlab-dev/conan-gperftools"
     license = "https://github.com/gperftools/gperftools/blob/master/COPYING"
 
     def requirements(self):
