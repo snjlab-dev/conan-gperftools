@@ -4,7 +4,7 @@ from conans import AutoToolsBuildEnvironment, tools
 class GperfToolsConan(NxConanFile):
     name = "gperftools"
     description = "The fastest malloc we have seen."
-    version = "2.5"
+    version = "2.10"
     options = {"shared":[True, False], "cpuprof":[True, False], "heapprof":[True, False], "heapchecker":[True, False]}
     default_options = "shared=False", "cpuprof=False", "heapprof=False", "heapchecker=False"
     url = "https://github.com/hoxnox/conan-gperftools"
@@ -12,10 +12,10 @@ class GperfToolsConan(NxConanFile):
 
     def requirements(self):
         if self.options.cpuprof or self.options.heapprof or self.options.heapchecker:
-            self.requires("libunwind/1.2@hoxnox/stable")
+            self.requires("libunwind/1.6.2")
 
     def do_source(self):
-        self.retrieve("6fa2748f1acdf44d750253e160cf6e2e72571329b42e563b455bde09e9e85173",
+        self.retrieve("83e3bfdd28b8bcf53222c3798d4d395d52dadbbae59e8730c4a6d31a9c3732d8",
             [
                 'vendor://google/gperftools/gperftools-{version}.tar.gz'.format(version=self.version),
                 'https://github.com/gperftools/gperftools/releases/download/gperftools-{version}/gperftools-{version}.tar.gz'.format(version=self.version)
